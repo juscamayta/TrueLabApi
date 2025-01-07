@@ -1,0 +1,6 @@
+@TrueLabApi_HostAddress = http://localhost:5001
+
+GET {{TrueLabApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
