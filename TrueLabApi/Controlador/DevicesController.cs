@@ -49,10 +49,22 @@ namespace TruelabApi.Controllers
         [Authorize]  // Solo los usuarios autenticados pueden acceder a este endpoint.
         public IActionResult UploadResults([FromBody] UploadResultRequest resultRequest)
         {
+
+            // Recuperar el token de la cabecera de autorización
+            var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+
+
+            if (string.IsNullOrEmpty(token))
+            {
+                return Unauthorized(new { message = "Token no proporcionado" });
+            }
+
             try
             {
                 // Almacenar los resultados
-                _resultService.StoreResults(resultRequest);
+                //_resultService.StoreResults(resultRequest);
+
+                _resultService.UploadResultAsync(token, resultRequest);
 
                 // Responder con un mensaje de éxito
                 return Ok(new { message = "Resultados cargados exitosamente" });

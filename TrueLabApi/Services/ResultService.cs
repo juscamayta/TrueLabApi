@@ -20,14 +20,13 @@ namespace TruelabApi.Services
         public void StoreResults(UploadResultRequest resultRequest)
         {
             // se  puedes agregar la lógica para almacenar el resultado.
-           
-
+            
             // Ejemplo de simplemente imprimir los resultados (puedes sustituirlo con la lógica real)
             Console.WriteLine("Storing result...");
             Console.WriteLine($"Patient Name: {resultRequest.PatientName}");
             Console.WriteLine($"Age: {resultRequest.Age}");
 
-          
+
         }
 
         // Implementación de UploadResultAsync
